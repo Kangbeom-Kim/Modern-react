@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Hello from './Hello';
+import Wrapper from './Wrapper';
 
 function App() {
   const name = 'react';
@@ -11,11 +13,14 @@ function App() {
   }
   return (
     <>
-      <Hello 
-        // Content={name}
-        ColorOfFont={style.color}
-      />
-      <div style={style}>{name}</div>
+      <Wrapper>
+        <Hello 
+          Content={name}
+          ColorOfFont={style.color}
+        />
+        <Hello ColorOfFont="pink"/>
+      </Wrapper>
+     
     </>
   );
 }
