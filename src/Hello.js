@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Hello(props) {
-    return <div name={props.name}>안녕하세요,</div>
+export default function Hello({Content, ColorOfFont}) {
+    return <div style={{ color: ColorOfFont }}> 안녕하세요, {Content}!</div>
 }

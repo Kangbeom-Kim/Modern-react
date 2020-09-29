@@ -1,5 +1,6 @@
 import React from 'react';
 import Hello from './Hello';
+
 function App() {
   const name = 'react';
   const style = {
@@ -10,9 +11,11 @@ function App() {
   }
   return (
     <>
-      <Hello/>
+      <Hello 
+        Content={name}
+        ColorOfFont={style.color}
+      />
       <div style={style}>{name}</div>
-      {/* 주석 작성하기는 이렇게 */}
     </>
   );
 }
