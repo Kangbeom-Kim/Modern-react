@@ -21,7 +21,7 @@ function App() {
         />
         <Hello ColorOfFont="pink"/>
       </Wrapper>
-     
+
     </>
   );
 }
