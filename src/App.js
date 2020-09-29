@@ -17,6 +17,7 @@ function App() {
         <Hello 
           Content={name}
           ColorOfFont={style.color}
+          isSpecial={true}
         />
         <Hello ColorOfFont="pink"/>
       </Wrapper>

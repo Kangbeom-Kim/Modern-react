@@ -1,7 +1,12 @@
 import React from 'react';
 
-export default function Hello({Content, ColorOfFont}) {
-    return <div style={{ color: ColorOfFont }}> 안녕하세요, {Content}!</div>
+export default function Hello({Content, ColorOfFont, isSpecial }) {
+    return (
+        <div style={{ color: ColorOfFont }}> 
+            {isSpecial ? <b>*</b> : null }
+            안녕하세요, {Content}!
+        </div>
+    );
 }
 
 Hello.defaultProps = {
