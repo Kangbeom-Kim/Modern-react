@@ -12,7 +12,7 @@ export default function InputSample() {
 
     return(
         <div>
-            <input type="text" onChange={onChange}/>
+            <input type="text" onChange={onChange} value={text}/>
             <button onClick={onReset}>초기화</button>
             <div>
                 <b>값: {text} </b>
