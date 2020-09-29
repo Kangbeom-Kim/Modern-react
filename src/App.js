@@ -12,6 +12,7 @@ function App() {
     <>
       <Hello/>
       <div style={style}>{name}</div>
+      {/* 주석 작성하기는 이렇게 */}
     </>
   );
 }
