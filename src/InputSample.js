@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-
+/*
+    여러개의 상태를 관리할 때는 useState 를 여러개 만들어 onChange 핸들러를 여러개 만들면 된다고 판단할 수 있으나 
+    이는 그렇게 좋은 방법이 아니다.
+    
+    가장 좋은 방법은 input 태그마다 name 을 주고 event 객체를 통해 name 과 value 를 state 로 지정하는게 가장 좋은 방법이다.
+*/
 export default function InputSample() {
     const [inputs, setInputs] = useState({
         name: '',
