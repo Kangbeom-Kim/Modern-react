@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 /*
     여러개의 상태를 관리할 때는 useState 를 여러개 만들어 onChange 핸들러를 여러개 만들면 된다고 판단할 수 있으나 
     이는 그렇게 좋은 방법이 아니다.
@@ -10,7 +10,8 @@ export default function InputSample() {
         name: '',
         nickname: ''
     });
-    
+    const nameInput = useRef();
+
     const { name, nickname } = inputs;
 
     const onChange = (e) => {
@@ -25,12 +26,13 @@ export default function InputSample() {
         setInputs({
             name: '',
             nickname: ''
-        })
+        });
+        nameInput.current.focus();
     }
 
     return(
         <div>
-            <input name="name" placeholder="이름" onChange={onChange} value={name}/>
+            <input name="name" placeholder="이름" onChange={onChange} value={name} ref={nameInput}/>
             <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
             <button onClick={onReset}>초기화</button>
             <div>
