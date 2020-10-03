@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react';
 
-function User({ user, onRemove, onToggle }) {
-    useEffect(() => {
-        console.log('컴포넌트 화면에 나타남');
-        console.log(user)
-        return() => {
-            console.log('컴포넌트 화면에서 사라짐');
-            console.log(user);
-        }
-    }, [user]);
+const User = React.memo(function User({ user, onRemove, onToggle }) {
+    console.log('user component')
     return (
         <>
             <div>
@@ -27,9 +20,10 @@ function User({ user, onRemove, onToggle }) {
             
         </>
     );
-}
-export default function UserList({ users, onRemove, onToggle }) {
+});
 
+function UserList({ users, onRemove, onToggle }) {
+    console.log('userlist component')
     return (
         <div>
             {users.map((data, index) => (
@@ -43,3 +37,5 @@ export default function UserList({ users, onRemove, onToggle }) {
         </div>
     );
 }
+
+export default React.memo(UserList)
