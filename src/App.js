@@ -45,7 +45,6 @@ function reducer(state, action) {
   switch (action.type) {
     case 'CREATE_USER': 
       return {
-        inputs: initialState.inputs,
         users: state.users.concat(action.user)
       }
     case 'TOGGLE_USER': 
@@ -65,13 +64,15 @@ function reducer(state, action) {
   }
 }
 
+export const UserDispatch = React.createContext(null);
+
 function App() {
   const [{ username, email }, onChange, reset ] = useInputs({
     username: '',
     email: ''
   });
   const [ state, dispatch ] = useReducer(reducer, initialState);
-  const nextId = useRef(4);
+  const nextId = useRef(5);
 
   const { users } = state;
 
@@ -88,32 +89,18 @@ function App() {
     nextId.current++;
   }, [username, email, reset]);
 
-  const onToggle = useCallback(id => {
-    dispatch({
-      type: 'TOGGLE_USER',
-      id
-    });
-  }, []);
-
-  const onRemove = useCallback(id => {
-    dispatch({
-      type: 'DELETE_USER',
-      id
-    });
-  }, []);
-
   const count = useMemo(() => countActiveUsers(users), [users]);
   return (
-    <>
+    <UserDispatch.Provider value={dispatch}>
       <CreateUser 
         username={username} 
         email={email} 
         onChange={onChange} 
         onCreate={onCreate} 
       />
-      <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
+      <UserList users={users} />
       <div>온라인: {count}</div>
-    </>
+    </UserDispatch.Provider>
   );
 }
 
