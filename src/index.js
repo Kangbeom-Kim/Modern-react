@@ -7,7 +7,7 @@ import CounterClass from './CounterClass';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CounterClass />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
